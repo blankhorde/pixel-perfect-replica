@@ -142,3 +142,121 @@
     color: var(--color-foreground);
   }
 }
+
+/* ============================================================
+ * Kweza — Tilt puzzle worlds
+ * Two game identities live here: "Market Run" (mk-*) and
+ * "Voltage" (vt-*). Components only ever use these tokens.
+ * ============================================================ */
+
+@theme inline {
+  --font-mk-display: "Bricolage Grotesque", ui-sans-serif, system-ui;
+  --font-mk-body: "Plus Jakarta Sans", ui-sans-serif, system-ui;
+  --font-vt-display: "Space Grotesk", ui-sans-serif, system-ui;
+  --font-vt-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-mk-bg: var(--mk-bg);
+  --color-mk-card: var(--mk-card);
+  --color-mk-ink: var(--mk-ink);
+  --color-mk-muted: var(--mk-muted);
+  --color-mk-brand: var(--mk-brand);
+  --color-mk-brand-deep: var(--mk-brand-deep);
+  --color-mk-gold: var(--mk-gold);
+  --color-mk-green: var(--mk-green);
+  --color-mk-tray: var(--mk-tray);
+  --color-mk-tray-deep: var(--mk-tray-deep);
+  --color-mk-line: var(--mk-line);
+  --color-mk-p1: var(--mk-p1);
+  --color-mk-p2: var(--mk-p2);
+  --color-mk-p3: var(--mk-p3);
+  --color-mk-p4: var(--mk-p4);
+
+  --color-vt-bg: var(--vt-bg);
+  --color-vt-panel: var(--vt-panel);
+  --color-vt-panel-2: var(--vt-panel-2);
+  --color-vt-ink: var(--vt-ink);
+  --color-vt-muted: var(--vt-muted);
+  --color-vt-indigo: var(--vt-indigo);
+  --color-vt-lime: var(--vt-lime);
+  --color-vt-cyan: var(--vt-cyan);
+  --color-vt-magenta: var(--vt-magenta);
+  --color-vt-amber: var(--vt-amber);
+  --color-vt-line: var(--vt-line);
+  --color-vt-p1: var(--vt-lime);
+  --color-vt-p2: var(--vt-cyan);
+  --color-vt-p3: var(--vt-magenta);
+  --color-vt-p4: var(--vt-amber);
+}
+
+:root {
+  --mk-bg: oklch(0.98 0.014 74);
+  --mk-card: oklch(1 0 0);
+  --mk-ink: oklch(0.25 0.03 50);
+  --mk-muted: oklch(0.53 0.03 55);
+  --mk-brand: oklch(0.62 0.19 44);
+  --mk-brand-deep: oklch(0.51 0.17 44);
+  --mk-gold: oklch(0.79 0.14 72);
+  --mk-green: oklch(0.5 0.11 152);
+  --mk-tray: oklch(0.92 0.04 72);
+  --mk-tray-deep: oklch(0.87 0.055 74);
+  --mk-line: oklch(0.87 0.04 72);
+  --mk-p1: oklch(0.62 0.19 44);
+  --mk-p2: oklch(0.5 0.11 152);
+  --mk-p3: oklch(0.52 0.2 5);
+  --mk-p4: oklch(0.5 0.09 220);
+
+  --vt-bg: oklch(0.11 0.02 275);
+  --vt-panel: oklch(0.19 0.05 280);
+  --vt-panel-2: oklch(0.25 0.07 280);
+  --vt-ink: oklch(0.96 0.01 280);
+  --vt-muted: oklch(0.63 0.06 285);
+  --vt-indigo: oklch(0.48 0.25 278);
+  --vt-lime: oklch(0.92 0.23 122);
+  --vt-cyan: oklch(0.85 0.14 195);
+  --vt-magenta: oklch(0.7 0.22 350);
+  --vt-amber: oklch(0.82 0.16 72);
+  --vt-line: oklch(0.29 0.06 282);
+}
+
+@keyframes kw-lock-pop {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.22); }
+  70% { transform: scale(0.94); }
+  100% { transform: scale(1); }
+}
+@keyframes kw-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  45% { transform: translateX(6px); }
+  70% { transform: translateX(-3px); }
+}
+@keyframes kw-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes kw-breathe {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+@keyframes kw-thumb {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.85); }
+  25% { opacity: 1; transform: translate(0, 0) scale(1); }
+  75% { opacity: 1; transform: translate(0, 34px) scale(1); }
+  100% { opacity: 0; transform: translate(0, 40px) scale(0.9); }
+}
+
+@utility kw-lock {
+  animation: kw-lock-pop 380ms cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+@utility kw-shake {
+  animation: kw-shake 320ms ease-out;
+}
+@utility kw-rise {
+  animation: kw-rise 260ms ease-out both;
+}
+@utility kw-breathe {
+  animation: kw-breathe 2.2s ease-in-out infinite;
+}
+@utility kw-thumb {
+  animation: kw-thumb 2.4s ease-in-out infinite;
+}
