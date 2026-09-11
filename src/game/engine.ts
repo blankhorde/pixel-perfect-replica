@@ -95,10 +95,10 @@ export const TUTORIAL_LEVELS: Level[] = [
     h: 4,
     walls: [5],
     pieces: [
-      { id: 0, start: 3, slot: 12 },
-      { id: 1, start: 2, slot: 7 },
+      { id: 0, start: 12, slot: 15 },
+      { id: 1, start: 0, slot: 12 },
     ],
-    par: 3,
+    par: 4,
   },
 ];
 
