@@ -98,7 +98,7 @@ export const TUTORIAL_LEVELS: Level[] = [
       { id: 0, start: 12, slot: 15 },
       { id: 1, start: 0, slot: 12 },
     ],
-    par: 4,
+    par: 3,
   },
 ];
 
