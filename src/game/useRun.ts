@@ -36,7 +36,7 @@ export function useRun(levels: Level[] = LEVELS, length = SESSION_LENGTH) {
   return {
     ladder,
     index,
-    level: ladder[Math.min(index, ladder.length - 1)],
+    level: ladder[Math.min(index, ladder.length - 1)]!,
     boardKey: key,
     results,
     points: results.reduce((n, r) => n + r.points, 0),

@@ -67,7 +67,7 @@ export function useTiltGame(level: Level, opts?: { budget?: number }) {
   const undo = useCallback(() => {
     setHistory((h) => {
       if (!h.length) return h;
-      setPositions(h[h.length - 1]);
+      setPositions(h[h.length - 1]!);
       setMoves((m) => Math.max(0, m - 1));
       setStatus("playing");
       fire({ kind: "undo" });
