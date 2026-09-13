@@ -22,7 +22,7 @@ export const cellY = (level: Level, cell: number) => Math.floor(cell / level.w);
 
 /** A piece is locked exactly when it rests on its own slot. */
 export const isLocked = (level: Level, positions: number[], i: number) =>
-  positions[i] === level.pieces[i].slot;
+  positions[i] === level.pieces[i]?.slot;
 
 export function startPositions(level: Level) {
   return level.pieces.map((p) => p.start);
