@@ -22,7 +22,7 @@ export const cellY = (level: Level, cell: number) => Math.floor(cell / level.w);
 
 /** A piece is locked exactly when it rests on its own slot. */
 export const isLocked = (level: Level, positions: number[], i: number) =>
-  positions[i] === level.pieces[i].slot;
+  positions[i] === level.pieces[i]?.slot;
 
 export function startPositions(level: Level) {
   return level.pieces.map((p) => p.start);
@@ -33,10 +33,10 @@ export function tilt(level: Level, positions: number[], dir: Dir): number[] {
   const [dx, dy] = DIR_VECTORS[dir];
   const { w, h } = level;
   const order = positions.map((_, i) => i).sort((a, b) => {
-    const ax = cellX(level, positions[a]);
-    const ay = cellY(level, positions[a]);
-    const bx = cellX(level, positions[b]);
-    const by = cellY(level, positions[b]);
+    const ax = cellX(level, positions[a]!);
+    const ay = cellY(level, positions[a]!);
+    const bx = cellX(level, positions[b]!);
+    const by = cellY(level, positions[b]!);
     return bx * dx + by * dy - (ax * dx + ay * dy);
   });
 
@@ -45,7 +45,7 @@ export function tilt(level: Level, positions: number[], dir: Dir): number[] {
 
   for (const i of order) {
     if (isLocked(level, positions, i)) continue; // locked pieces are terrain
-    let cur = next[i];
+    let cur = next[i]!;
     occupied.delete(cur);
     for (;;) {
       const nx = cellX(level, cur) + dx;
@@ -58,6 +58,7 @@ export function tilt(level: Level, positions: number[], dir: Dir): number[] {
     occupied.add(cur);
     next[i] = cur;
   }
+
 
   return next;
 }

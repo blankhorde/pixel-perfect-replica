@@ -107,8 +107,8 @@ function Tray({
       </div>
 
       {level.pieces.map((p, i) => {
-        const x = cellX(level, positions[i]);
-        const y = cellY(level, positions[i]);
+        const x = cellX(level, positions[i]!);
+        const y = cellY(level, positions[i]!);
         return (
           <div
             key={p.id}
@@ -238,7 +238,7 @@ function Board({
     if (e.lockedIds?.length) {
       setFlash(e.lockedIds);
       setToast({
-        text: `${GOODS[e.lockedIds[0] % 4]} landed. That crate is a wall now.`,
+        text: `${GOODS[(e.lockedIds[0] ?? 0) % 4]} landed. That crate is a wall now.`,
         tone: "good",
       });
       const t = setTimeout(() => setFlash([]), 420);
@@ -247,6 +247,7 @@ function Board({
     if (e.kind === "moved" && game.movesLeft === 1) {
       setToast({ text: "One swipe left. Make it count.", tone: "warn" });
     }
+    return undefined;
   }, [game.event, game.movesLeft]);
 
   useEffect(() => {
@@ -549,7 +550,7 @@ function MarketRun() {
             {step === 0 && (
               <Board
                 key="coach-0"
-                level={TUTORIAL_LEVELS[0]}
+                level={TUTORIAL_LEVELS[0]!}
                 boardLabel="Learn · 1 of 3"
                 coach={{
                   title: "Swipe anywhere on the tray.",
@@ -562,7 +563,7 @@ function MarketRun() {
             {step === 1 && (
               <Board
                 key="coach-1"
-                level={TUTORIAL_LEVELS[1]}
+                level={TUTORIAL_LEVELS[1]!}
                 boardLabel="Learn · 2 of 3"
                 coach={{
                   title: "A landed crate turns into a wall.",

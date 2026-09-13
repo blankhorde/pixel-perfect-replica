@@ -144,16 +144,13 @@
 }
 
 /* ============================================================
- * Kweza — Tilt puzzle worlds
- * Two game identities live here: "Market Run" (mk-*) and
- * "Voltage" (vt-*). Components only ever use these tokens.
+ * Kweza — Market Run (mk-*) game identity tokens.
+ * Components only ever use these tokens.
  * ============================================================ */
 
 @theme inline {
   --font-mk-display: "Bricolage Grotesque", ui-sans-serif, system-ui;
   --font-mk-body: "Plus Jakarta Sans", ui-sans-serif, system-ui;
-  --font-vt-display: "Space Grotesk", ui-sans-serif, system-ui;
-  --font-vt-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --color-mk-bg: var(--mk-bg);
   --color-mk-card: var(--mk-card);
@@ -170,23 +167,8 @@
   --color-mk-p2: var(--mk-p2);
   --color-mk-p3: var(--mk-p3);
   --color-mk-p4: var(--mk-p4);
-
-  --color-vt-bg: var(--vt-bg);
-  --color-vt-panel: var(--vt-panel);
-  --color-vt-panel-2: var(--vt-panel-2);
-  --color-vt-ink: var(--vt-ink);
-  --color-vt-muted: var(--vt-muted);
-  --color-vt-indigo: var(--vt-indigo);
-  --color-vt-lime: var(--vt-lime);
-  --color-vt-cyan: var(--vt-cyan);
-  --color-vt-magenta: var(--vt-magenta);
-  --color-vt-amber: var(--vt-amber);
-  --color-vt-line: var(--vt-line);
-  --color-vt-p1: var(--vt-lime);
-  --color-vt-p2: var(--vt-cyan);
-  --color-vt-p3: var(--vt-magenta);
-  --color-vt-p4: var(--vt-amber);
 }
+
 
 :root {
   --mk-bg: oklch(0.98 0.014 74);
@@ -205,18 +187,8 @@
   --mk-p3: oklch(0.52 0.2 5);
   --mk-p4: oklch(0.5 0.09 220);
 
-  --vt-bg: oklch(0.11 0.02 275);
-  --vt-panel: oklch(0.19 0.05 280);
-  --vt-panel-2: oklch(0.25 0.07 280);
-  --vt-ink: oklch(0.96 0.01 280);
-  --vt-muted: oklch(0.63 0.06 285);
-  --vt-indigo: oklch(0.48 0.25 278);
-  --vt-lime: oklch(0.92 0.23 122);
-  --vt-cyan: oklch(0.85 0.14 195);
-  --vt-magenta: oklch(0.7 0.22 350);
-  --vt-amber: oklch(0.82 0.16 72);
-  --vt-line: oklch(0.29 0.06 282);
 }
+
 
 @keyframes kw-lock-pop {
   0% { transform: scale(1); }
